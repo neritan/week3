@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The JavaScript <i>this</i> Keyword</h1>
+<p>In this example, we play with function.</p>
+
+
+<p id="demo"></p>
+
+<script>
+// Declaration (hoisted)
+sayHello(); // Works!
+function sayHello() { console.log("Hi!"); return "Hi!"; }
+
+// Expression (not hoisted)
+//sayHi(); // Error: sayHi is not a function
+var sayHi = function() { console.log("Hi!"); return "Hi!";};
+
+function logArgs(x, y) {
+  console.log(arguments); // { 0: "a", 1: "b", length: 2 }
+  console.log(x+y); // "a"
+}
+logArgs("a", "b", "c");
+
+document.getElementById("demo").innerHTML = sayHi();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>ES5 Variables, Types & Operators</h2>
+
+<p>Experiments with var and operation</p>
+
+<p id="demo"></p>
+
+<script>
+
+var x = "5A";
+var y = "6";
+var z = y - x;
+
+function test() {
+  if (true) {
+    var xx = 10; // Leaks outside block!
+  }
+  console.log(xx);// 10 (not block-scoped)
+};
+test();
+console.log(2 === "2");
+; 
+
+var str = "HELLO WORLD";
+document.getElementById("demo").innerHTML = "The value of z is: " + z;
+/*document.getElementById("demo").innerHTML =
+"The value of z is: " + z;*/
+</script>
+</body>
+</html>
