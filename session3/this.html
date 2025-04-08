@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The JavaScript <i>this</i> Keyword</h1>
+<p>In this example, <b>this</b> refers to the <b>person</b> object.</p>
+<p>Because <b>fullName</b> is a method of the person object.</p>
+<br/>
+<button id="showThis">Show This</button>
+<br/>
+<br/>
+
+<button id="showPerson">Show Person</button>
+
+<p id="demo"></p>
+
+<script>
+console.log(this);
+
+
+function showThis() {
+  //"use strict";
+  console.log(this);
+}
+showThis();
+
+document.getElementById('showThis').addEventListener('click', function (event) {
+  console.log(this);
+  showThis(this);
+});
+
+// Create an object:
+document.getElementById('showPerson').addEventListener('click', function (event) {
+  console.log(this);
+  var person = {
+    firstName: "John",
+    lastName: "Doe",
+    id: 5566,
+    fullName : function() {
+      return this.firstName + " " + this.lastName;
+    }
+  };
+  console.log(person.fullName());
+  document.getElementById("demo").innerHTML = person.fullName();
+});
+
+
+// Display data from the object:
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h1>The JavaScript <i>timing</i> </h1>
+    <p>In this example,will be used timing.</p>
+   
+
+
+    <br />
+
+    <button onclick="showTick()">Show tick</button>
+
+    <p id="ticks"></p>
+
+
+    <br />
+    <button onclick="speed()">Show speed</button>
+    <p id="speed"></p>
+    <br />
+
+    <script>
+
+        const timeoutId = setTimeout(() => {
+            console.log("This will never run");
+        }, 2000);
+
+        clearTimeout(timeoutId);
+
+        function showTick() {
+            let counter = 0;
+            const intervalId = setInterval(function () {
+                counter++;
+                console.log(`Tick ${counter}`);
+                document.getElementById("ticks").innerText += `Tick ${counter} ` + "\n";
+
+                if (counter >= 5) {
+                    clearInterval(intervalId); // Stop after 5 ticks
+                }
+            }, 1000);
+        }
+
+        // Create an object:
+
+        function speed() {
+            let speed = 1000; // Start with 1-second interval
+            let counter = 0;
+
+            function runSpeed() {
+                if (speed <= 0) {
+                    console.log("Speed limit reached: " + speed);
+                    document.getElementById("speed").innerText += "Speed limit reached\n";
+                    return; // Exit the function
+                }
+
+                counter++;
+                console.log(`Message ${counter}`);
+                document.getElementById("speed").innerText += `Message ${counter}\n`;
+
+                if (counter % 3 === 0) {
+                    speed -= 200; // Speed up by 200ms
+                }
+
+                setTimeout(runSpeed, speed); // Schedule the next execution
+            }
+
+            runSpeed(); // Start the recursive function
+        }
+
+
+
+        // Display data from the object:
+
+    </script>
+
+</body>
+
+</html>
