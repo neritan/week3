@@ -1,0 +1,35 @@
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: red;  
+}
+
+.old {
+    background-color: blue;
+}
+
+.highlight {
+    background-color: yellow;
+
+}
+
+.visible {
+    display: block;
+    text-decoration: underline;
+}
+.inactive {
+    display: none;
+}
+
+#container {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    background: yellow;
+  }
+  #animate {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: red;
+  }

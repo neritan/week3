@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>jQuery Lesson Example</h1>
+    <p>This example demonstrates basic jQuery functionalities.</p>
+
+    <button id="alertButton">Show Alert</button>
+    <button id="changeTextButton">Change Text</button>
+    <button id="appendElementButton">Append Element</button>
+
+    <div id="textContainer">
+        <p>This text will change when you click the button.</p>
+    </div>
+    <script>
+        $(document).ready(function () {
+            $('#alertButton').click(function () {
+                alert('Button clicked!');
+            });
+
+            $('#changeTextButton').click(function () {
+                $('#textContainer').text('The text has been changed!');
+            });
+
+            $('#appendElementButton').click(function () {
+                $('<div class="new-element">New Element Added!</div>').appendTo('#textContainer');
+            });
+        });
+
+
+    </script>
+
+
+
+</body>
+
+</html>

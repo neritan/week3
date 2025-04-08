@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>The JavaScript <i>Styling</i></h1>
+    <p>In these examples, <b>style </b> change with javascript.</p>
+
+    <p class="box">let change the box</p>
+    <button id="changeBox">Change box</button>
+    <br />
+    <button id="changeClass">change class</button>
+    <br />
+    <br />
+    <p>In this example, <b>animation</b> with javascript.</p>
+
+    <button id="animateBtn" onclick="myMove()">Start Animation</button>
+    <div id ="container">
+        <div id ="animate"></div>
+    </div>
+    
+    <script>
+        document.getElementById('changeBox').addEventListener('click', function (event) {
+            var box = document.querySelector('.box');
+            box.style.backgroundColor = 'blue';
+            box.style.color = 'white';
+            box.style.fontSize = '20px';
+            box.style.padding = '10px';
+            var styles = window.getComputedStyle(box);
+            console.log(styles.getPropertyValue('width'));
+
+        });
+
+        document.getElementById('changeClass').addEventListener('click', function (event) {
+            var box = document.querySelector('.box');
+            box.classList.add('highlight');
+            box.classList.remove('box');
+            box.classList.toggle('visible')
+        });
+
+        function myMove() {
+            let id = null;
+            const elem = document.getElementById("animate");
+            let pos = 0;
+            clearInterval(id);
+            id = setInterval(frame, 10);
+            function frame() {
+                if (pos == 400) {
+                    clearInterval(id);
+                } else {
+                    pos++;
+                    elem.style.top = pos + "px";
+                    elem.style.left = pos + "px";
+                }
+            }
+        }
+
+    </script>
+
+</body>

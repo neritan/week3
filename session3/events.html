@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>The JavaScript <i>events</i></h1>
+<p>In this example, <b>BUTTON</b> with event click.</p>
+
+<button id="myButton">Click me</button>
+
+<p id="button-box"></p>
+
+<p>In this example, <b>ITEM</b> with event click.</p>
+
+<ul>
+    <li class="item">Item 1</li>
+    <li class="item">Item 2</li>
+    <li class="item">Item 3</li>
+    <li class="item">Item 4</li>
+</ul>
+<p id="item-box"></p>
+
+<p>Please click on the checkbox control.</p>
+
+<form>
+    <label for="id-checkbox">Checkbox:</label>
+    <input type="checkbox" id="id-checkbox" />
+</form>
+<div id="output-box"></div>
+<p id="demo"></p>
+<script>
+    document.addEventListener('click', function(event) {
+        console.log('Clicked at:', event.clientX, event.clientY);
+    });
+
+    var button = document.getElementById('myButton');
+    button.addEventListener('click', function(event) {
+        console.log('Clicked at:', event.clientX, event.clientY);
+        var message = 'Clicked at: ' + event.clientX + ', ' + event.clientY;
+        document.getElementById("item-box").innerText += message + "\n";
+    });
+
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('item')) {
+            var message = 'Item clicked:' + event.target.textContent;
+            console.log('Item clicked:', event.target.textContent);
+            document.getElementById("item-box").innerText += message + "\n";
+        }
+        
+    });
+    const checkbox = document.querySelector("#id-checkbox");
+
+    checkbox.addEventListener("click", checkboxClick);
+
+    function checkboxClick(event) {
+        //event.preventDefault();
+        const warn = "preventDefault() won't let you check this!\n";
+        document.getElementById("output-box").innerText += warn;
+        
+    }
+
+    
+
+</script>
+
+</body>
+</html>

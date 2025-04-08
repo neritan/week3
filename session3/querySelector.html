@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1>The JavaScript <i>query selector</i></h1>
+    <p>In this example, <b>items</b> with querySelector.</p>
+    <ul>
+        <li class="item">Item 1</li>
+        <li class="item">Item 2</li>
+        <li class="item">Item 3</li>
+        <li class="item">Item 4</li>
+    </ul>
+    <button id="item-event">ITEMS</button>
+    <br />
+
+    <button id="appendChild">Append child</button>
+    <br />
+    <p class="old">this is an existing div</p>
+    <button id="removeChild">removeChild</button>
+
+    <script>
+        document.getElementById('item-event').addEventListener('click', function (event) {
+            var firstItem = document.querySelector('.item');
+            var allItems = document.querySelectorAll('.item');
+            console.log(firstItem);
+            console.log(allItems);
+        });
+
+        document.getElementById('appendChild').addEventListener('click', function (event) {
+            var newDiv = document.createElement('div');
+            newDiv.textContent = 'New Element';
+            newDiv.className = 'box';
+            document.body.appendChild(newDiv);
+        });
+
+        document.getElementById('removeChild').addEventListener('click', function (event) {
+            var oldDiv = document.querySelector('.old');
+            if (oldDiv) {
+                oldDiv.parentNode.removeChild(oldDiv);
+            }
+        });
+
+    </script>
+
+
+
+</body>
+
+</html>
